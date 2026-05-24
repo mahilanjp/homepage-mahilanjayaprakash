@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="img/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="img/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9837213332698499"
-     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <title>Homepage | MahilanJP</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Preloader/loaderstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
 </head>
 <body>
   <div id="preloader">
@@ -42,72 +45,133 @@
  });
 
 </script>-->
-    <nav>
-        <div class="logo">
-          <!--<img src="assets/Logo64x64.png" alt="logo" />-->
-          <h1>MAHILAN<span>JP.</span></h1>
+<section class="mh-homepage" id="mh-homepage">
+    <canvas id="mh-bg-canvas"></canvas>
+
+    <header class="mh-navbar">
+      <div class="mh-logo">
+        <div class="mh-logo-text">
+          MAHILANJP.
         </div>
-        <ul>
-          <li>
-            <a href="#intro">My Intro</a>
-          </li>
-          <li>
-            <a href="#skills">Skills</a>
-          </li>
-          <li>
-            <a href="#projects">Projects</a>
-          </li>
-          <li>
-              <a href="#contact">Contact</a>
-            </li>
-        </ul>
-        <div class="hamburger">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-        </div>
-      </nav>
-      <div class="menubar">
-        <ul>
-          <div class="logo">
-          <!--<img src="assets/Logo64x64.png" alt="logo" />-->
-          <h1>MAHILAN<span>JP.</span></h1>
-        </div>
-        <br>
-        <br>
-        <li>
-          <a href="#home">Home</a>
-        </li><br>
-          <li>
-            <a href="#intro">My Intro</a>
-          </li><br>
-          <li>
-            <a href="#skills">Skills</a>
-          </li><br>
-          <li>
-            <a href="#projects">Projects</a>
-          </li><br>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
       </div>
-    <section class="mainpage-section" id="home"> 
-            <img src="img/mainpagemain-img.jpg" alt="mainpage-img">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <h2>Hello, I'm</h2>
-            <br>
-            <h1>MahilanJP</h1>
-            <p><span id="mainpage-holder"></span><span class="blinking-cursor">|</span></p>
-            <br><br><br>
-            <div class="mainpage-scrollbar">
+
+    <nav class="mh-desktop-menu">
+        <a href="#intro">Intro</a>
+        <a href="#skills">Skills</a>
+        <a href="#journey">Journey</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+
+      </nav>
+
+      <div class="mh-nav-right">
+
+        <button
+          class="mh-theme-btn"
+          id="mh-theme-btn"
+        >
+          ☾
+        </button>
+
+        <button
+          class="mh-mobile-btn"
+          id="mh-mobile-btn"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </header>
+
+    <div
+      class="mh-mobile-menu"
+      id="mh-mobile-menu"
+    >
+
+      <button
+        class="mh-menu-close"
+        id="mh-menu-close"
+      >
+        ✕
+      </button>
+
+      <a href="#intro">Intro</a>
+
+      <a href="#skills">Skills</a>
+
+      <a href="#journey">Journey</a>
+
+      <a href="#projects">Projects</a>
+
+      <a href="#contact">Contact</a>
+
+    </div>
+
+    <main class="mh-hero">
+
+      <div class="mh-content">
+
+        <p class="mh-name">
+          MAHILAN JAYAPRAKASH
+        </p>
+
+        <div class="mh-title-row">
+
+          <h1>Developer</h1>
+
+          <div class="mh-line"></div>
+
+        </div>
+
+        <div class="mh-title-switch">
+
+          <span class="mh-plus">
+            +
+          </span>
+
+          <span id="mh-changing-word">
+            Designer
+          </span>
+        </div>
+        <br>
+    <div class="mh-typing-wrapper">
+       <span id="mh-holder"></span><span class="blinking-cursor">|</span>
+   </div>
+    <!-- <div class="mh-social-buttons">
+  <a href="https://github.com/mahilanjp" target="_blank" class="mh-social-btn">
+
+    <span class="mh-social-icon">
+      <i class="fa-brands fa-github"></i>
+    </span>
+
+    <span>GitHub</span>
+
+  </a>
+
+  <a href="https://instagram.com/m__ahilanjp" target="_blank" class="mh-social-btn">
+
+    <span class="mh-social-icon">
+      <i class="fa-brands fa-instagram"></i>
+    </span>
+
+    <span> Instagram</span>
+
+  </a>
+
+</div>-->
+
+        <br><br><br><br><br>
+        <div class="mainpage-scrollbar">
                 <a href="#intro"><span></span><span></span><span></span></a>
             </div>
-    </section>
+
+      </div>
+
+    </main>
+
+  </section>
+
     <div class="intropage-section" id="intro">
       <br>
       <br>
@@ -154,9 +218,7 @@
                 <a href="https://www.github.com">
                   <img src="img/github.png" alt="https://www.github.com/mahilanjp">
                 </a>
-                <a href="https://www.telegram.com">
-                  <img src="img/telegram.png" alt="https://www.telegram.com">
-                </a>    
+             
               </div>
             </div>
         </div>
@@ -165,17 +227,17 @@
    <h2 class="spotify-text">MELODIES I'VE CRAFTED</h2>
   <div class="track-row">
     <div class="spotify-embed">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3Ofmpyhv5UAQ70mENzB277?utm_source=generator" 
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7MXVkk9YMctZqd1Srtv4MB?utm_source=generator" 
       width="100%" height="352" frameBorder="0" allowfullscreen="" 
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
     <div class="spotify-embed">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b?utm_source=generator"
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4hTcGYU6uXZVCAfIMsxhlC?utm_source=generator&theme=0"
        width="100%" height="352" frameBorder="0" allowfullscreen="" 
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
     <div class="spotify-embed">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4hTcGYU6uXZVCAfIMsxhlC?utm_source=generator&theme=0" 
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/709ZIqPHyFOpx2QdjmeWAM?utm_source=generator" 
       width="100%" height="352" frameBorder="0" allowfullscreen="" 
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
@@ -190,9 +252,7 @@
                     Hi Everyone,</p>
                 <p>
                   I have acquired a strong foundation in full-stack web development through dedicated learning and hands-on projects. My technical skill set includes proficiency in front-end technologies such as HTML, CSS, JavaScript, C++ and Java which allow me to build responsive and interactive user interfaces. On the back end, I have experience working with Node.js and Express.js, enabling me to develop efficient server-side logic. Additionally, I’ve gained practical knowledge of MongoDB, which I use to design and manage NoSQL databases. This combination of front-end and back-end skills allows me to build complete web applications from the ground up.</p>
-                  <p>
-                    I have a strong passion for programming. It excites me to create new applications, solve complex problems, and continuously learn new techniques to improve my skills. Every line of code is an opportunity to bring ideas to life, and that constant challenge is what keeps me motivated.
-                  </p>
+                  
                 </p>
             </div>
         </div>
