@@ -279,9 +279,9 @@ mhMobileLinks.forEach(link => {
 
           mobile ? 260 : 320,
 
-          "rgba(255,0,80,0.45)",
+          "rgba(163,177,138,0.45)",
 
-          "rgba(255,0,80,0.65)"
+          "rgba(163,177,138,0.65)"
 
         ),
 
@@ -295,9 +295,9 @@ mhMobileLinks.forEach(link => {
 
           mobile ? 220 : 280,
 
-          "rgba(255,40,40,0.28)",
+          "rgba(58,90,64,0.28)",
 
-          "rgba(255,40,40,0.40)"
+          "rgba(58,90,64,0.40)"
 
         ),
 
@@ -327,9 +327,9 @@ mhMobileLinks.forEach(link => {
 
           mobile ? 260 : 260,
 
-          "rgba(255,20,60,0.32)",
+          "rgba(11,82,91,0.45)",
 
-          "rgba(255,20,60,0.40)"
+          "rgba(11,82,91,0.45)"
 
         )
 
@@ -434,35 +434,266 @@ mhMobileLinks.forEach(link => {
        ageDisplay.textContent = `${age} years`;
  //intropage
  AOS.init();  
- 
- // EmailJS Validator
+ //Project Page Card Slideshow
+const mhProjects = [
+
+  {
+    image:"img/project1.png",
+    title:"‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Weather App Using JS",
+    desc:"A responsive weather forecasting application built using HTML, CSS, and React JS with real-time weather updates, temperature tracking, and a clean modern user interface.",
+    btn1:{label:"Github",url:"https://github.com/mahilanjp"}
+  },
+
+  {
+    image:"img/project2.png",
+    title:"‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Music App Using MongoDB",
+    desc:"A full-stack music streaming application developed using HTML, CSS, JavaScript, Node.js, and MongoDB featuring playlist management, smooth audio controls, and responsive UI.",
+    btn1:{label:"Github",url:"https://github.com/mahilanjp"}
+  },
+
+  {
+    image:"img/project3.png",
+    title:"‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎‎ ‎ ‎ ‎   Voice Calculator",
+    desc:"An interactive voice-enabled calculator built using HTML, CSS, and JavaScript that performs quick mathematical calculations through speech recognition technology.",
+    btn1:{label:"Github",url:"https://github.com/mahilanjp"}
+  },
+
+  {
+    image:"img/project4.png",
+    title:"‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Task Management System",
+    desc:"A smart task management system developed using Python for organizing daily activities, tracking progress, and improving workflow productivity with a clean interface.",
+    btn1:{label:"Github",url:"https://github.com/mahilanjp"}
+  },
+  {
+    image:"img/project5.png",
+    title:"‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ E-commerce Site ",
+    desc:"A modern ecommerce platform developed using Java, HTML, CSS, JavaScript, MySQL, and Bootstrap featuring secure product management, responsive shopping UI, and seamless user experience.",
+    btn1:{label:"Github",url:"https://github.com/mahilanjp"}
+  }
+
+];
+
+const mhTrack = document.getElementById("mhProjectTrack");
+const mhDots = document.getElementById("mhProjectDots");
+const mhPrevBtn = document.getElementById("mhPrevBtn");
+const mhNextBtn = document.getElementById("mhNextBtn");
+
+let mhCurrent = 0;
+
+function mhRenderProjects(){
+
+  mhTrack.innerHTML = "";
+  mhDots.innerHTML = "";
+
+  mhProjects.forEach((project,index)=>{
+
+    const card = document.createElement("div");
+
+    card.className =
+      "mh-project-card" +
+      (index === mhCurrent ? " mh-project-active" : "");
+
+    card.innerHTML = `
+
+<div class="mh-project-image">
+  <img src="${project.image}" alt="${project.title}" class="mh-project-image-tag">
+</div>
+
+      <div class="mh-project-body">
+
+        <div class="mh-project-card-title">
+          ${project.title}
+        </div>
+
+        <div class="mh-project-description">
+          ${project.desc}
+        </div>
+
+        <div class="mh-project-actions">
+
+  <a href="${project.btn1.url}"
+  class="mh-project-btn mh-project-btn-primary mh-project-full-btn">
+  <i class="fa-brands fa-github"></i>
+    ${project.btn1.label}
+  </a>
+
+</div>
+    `;
+
+    card.addEventListener("click",()=>{
+      mhCurrent = index;
+      mhUpdateCarousel();
+    });
+
+    mhTrack.appendChild(card);
+
+    /* DOTS */
+
+    const dot = document.createElement("div");
+
+    dot.className =
+      "mh-project-dot" +
+      (index === mhCurrent ? " mh-project-active" : "");
+
+    dot.addEventListener("click",()=>{
+      mhCurrent = index;
+      mhUpdateCarousel();
+    });
+
+    mhDots.appendChild(dot);
+
+  });
+
+}
+
+function mhUpdateCarousel(){
+
+  mhRenderProjects();
+
+  const firstCard = mhTrack.children[0];
+
+  if(!firstCard) return;
+
+  const cardWidth = firstCard.offsetWidth + 20;
+
+  const containerWidth =
+    mhTrack.parentElement.offsetWidth;
+
+  let offset =
+    mhCurrent * cardWidth -
+    (containerWidth / 2 - cardWidth / 2);
+
+  if(window.innerWidth <= 768){
+    offset = mhCurrent * (firstCard.offsetWidth + 12);
+  }
+const extraPadding = 40;
+
+const trackMax =
+  mhTrack.scrollWidth -
+  containerWidth +
+  extraPadding;
+
+offset = Math.max(
+  0,
+  Math.min(offset, trackMax)
+);
+
+  mhTrack.style.transform =
+    `translateX(-${offset}px)`;
+
+  mhPrevBtn.disabled = mhCurrent === 0;
+
+  mhNextBtn.disabled =
+    mhCurrent === mhProjects.length - 1;
+
+}
+
+mhPrevBtn.addEventListener("click",()=>{
+
+  if(mhCurrent > 0){
+    mhCurrent--;
+    mhUpdateCarousel();
+  }
+
+});
+
+mhNextBtn.addEventListener("click",()=>{
+
+  if(mhCurrent < mhProjects.length - 1){
+    mhCurrent++;
+    mhUpdateCarousel();
+  }
+
+});
+
+let mhTouchStartX = 0;
+
+mhTrack.addEventListener("touchstart",(e)=>{
+  mhTouchStartX = e.touches[0].clientX;
+});
+
+mhTrack.addEventListener("touchend",(e)=>{
+
+  const diff =
+    mhTouchStartX -
+    e.changedTouches[0].clientX;
+
+  if(Math.abs(diff) > 40){
+
+    if(diff > 0 &&
+      mhCurrent < mhProjects.length - 1){
+
+      mhCurrent++;
+      mhUpdateCarousel();
+
+    }
+
+    else if(diff < 0 &&
+      mhCurrent > 0){
+
+      mhCurrent--;
+      mhUpdateCarousel();
+
+    }
+
+  }
+
+});
+
+window.addEventListener("resize",mhUpdateCarousel);
+
+mhRenderProjects();
+mhUpdateCarousel();
+
+//Scroll Bar Icon- from down to up 
+const mhScrollBtn =
+document.querySelector(".mh-scroll-top");
+
+window.addEventListener("scroll",()=>{
+
+  if(window.scrollY > 300){
+
+    mhScrollBtn.classList.add("mh-show-scroll");
+
+  }
+
+  else{
+
+    mhScrollBtn.classList.remove("mh-show-scroll");
+
+  }
+
+});
+// EmailJS Validator
 // Initialize EmailJS
 (function() {
     emailjs.init("T5chQZALxrNORtvJe"); 
 })();
 
-document.getElementById('contact-form').addEventListener('submit', function(event) {
+document.getElementById('contact_form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const message = document.getElementById('message').value.trim();
+    const name = document.getElementById('name_input').value.trim();
+    const email = document.getElementById('email_input').value.trim();
+    const phone = document.getElementById('telephone_input').value.trim();
+    const subject = document.getElementById("subject_input").value;
+    const message = document.getElementById('message_input').value.trim();
 
     if (!name || !email || !message) {
         alert('Please fill in all required fields.');
         return;
     }
 
-    emailjs.send("service_w1ut6lj", "template_52r9ulk", {
+    emailjs.send("service_pwwifzi", "template_52r9ulk", {
         user_name: name,
         user_email: email,
         user_phone: phone,
+        user_subject: subject,
         message: message
     })
     .then(function(response) {
         alert('Message sent successfully!');
-        document.getElementById('contact-form').reset(); // Reset form after submission
+        document.getElementById('contact_form').reset(); // Reset form after submission
     }, function(error) {
         alert('Failed to send message. Please try again.');
         console.error('EmailJS Error:', error);
