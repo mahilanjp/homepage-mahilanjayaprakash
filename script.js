@@ -71,7 +71,7 @@
       }, 350);
     }
      const element = document.getElementById("mh-holder");
-    writeText(element, "FRONT-END + BACK-END DEVELOPER");
+    writeText(element, "FULL STACK DEVELOPER");
   });
   //Mobile Menu
     const mhMobileBtn =
