@@ -1,7 +1,6 @@
 // Disable Right Click --MahilanJP
   document.addEventListener("contextmenu", function(event) {
      event.preventDefault();
-     alert("Right-click is disabled!");
 });
 
 // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U --MahilanJP
