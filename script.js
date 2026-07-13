@@ -1,3 +1,42 @@
+// Disable Right Click --MahilanJP
+  document.addEventListener("contextmenu", function(event) {
+     event.preventDefault();
+     alert("Right-click is disabled!");
+});
+
+// Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U --MahilanJP
+  document.addEventListener("keydown", function(event) {
+       if (event.key === "F12") {
+             event.preventDefault();
+             return false;
+         }
+       if (event.ctrlKey && event.shiftKey && event.key.toUpperCase() === "I") {
+            event.preventDefault();
+            return false;
+        }
+       if (event.ctrlKey && event.shiftKey && event.key.toUpperCase() === "J") {
+            event.preventDefault();
+             return false;
+         }
+       if (event.ctrlKey && event.shiftKey && event.key.toUpperCase() === "C") {
+            event.preventDefault();
+            return false;
+         }
+
+       if (event.ctrlKey && event.key.toUpperCase() === "U") {
+            event.preventDefault();
+            return false;
+        }
+
+    });
+      document.addEventListener("selectstart", function(event) {
+          event.preventDefault();
+     });
+
+      document.addEventListener("dragstart", function(event) {
+            event.preventDefault();
+        });
+
 //Homepage UI + Mobile Menu --MahilanJP
     const mhWords = [
       "Designer",
