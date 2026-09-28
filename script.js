@@ -507,6 +507,12 @@ const mhProjects = [
     title:"‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ E-commerce Site ",
     desc:"A modern ecommerce platform developed using Java, HTML, CSS, JavaScript, MySQL, and Bootstrap featuring secure product management, responsive shopping UI, and seamless user experience.",
     btn1:{label:"Github",url:"https://github.com/mahilanjp"}
+  },
+  {
+    image:"img/project5.png",
+    title:"‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ IOT Watch WIFI Data ",
+    desc:"A moder graphical user interface designed to get real wifi data from fireboltt watch to the respective ip mobile app and from the app its will automatically fetch and upload data to mongodb atlas every 90seconds and from the clould the data will uploaded and shown as live every 90seconds",
+    btn1:{label:"Github",url:"https://github.com/mahilanjp"}
   }
 
 ];
