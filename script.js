@@ -710,36 +710,54 @@ window.addEventListener("scroll",()=>{
 });
 // EmailJS Validator
 // Initialize EmailJS
-(function() {
-    emailjs.init("T5chQZALxrNORtvJe"); 
+(function () {
+  emailjs.init("T5chQZALxrNORtvJe");
 })();
 
-document.getElementById('contact_form').addEventListener('submit', function(event) {
-    event.preventDefault();
+const contactForm = document.getElementById("contact_form");
+const sendBtn = document.getElementById("form_button");
 
-    const name = document.getElementById('name_input').value.trim();
-    const email = document.getElementById('email_input').value.trim();
-    const phone = document.getElementById('telephone_input').value.trim();
-    const subject = document.getElementById("subject_input").value;
-    const message = document.getElementById('message_input').value.trim();
+contactForm.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-    if (!name || !email || !message) {
-        alert('Please fill in all required fields.');
-        return;
-    }
+  const name = document.getElementById("name_input").value.trim();
+  const email = document.getElementById("email_input").value.trim();
+  const phone = document.getElementById("telephone_input").value.trim();
+  const subject = document.getElementById("subject_input").value;
+  const message = document.getElementById("message_input").value.trim();
 
-    emailjs.send("service_pwwifzi", "template_52r9ulk", {
-        user_name: name,
-        user_email: email,
-        user_phone: phone,
-        user_subject: subject,
-        message: message
+  if (!name || !email || !message) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+  if (!subject) {
+    alert("Please choose a subject.");
+    return;
+  }
+
+  const originalHTML = sendBtn.innerHTML;
+  sendBtn.disabled = true;
+  sendBtn.textContent = "Sending...";
+
+  emailjs
+    .send("service_pwwifzi", "template_52r9ulk", {
+      user_name: name,
+      user_email: email,
+      user_phone: phone || "Not provided",
+      user_subject: subject,
+      message: message,
+      time: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
     })
-    .then(function(response) {
-        alert('Message sent successfully!');
-        document.getElementById('contact_form').reset(); // Reset form after submission
-    }, function(error) {
-        alert('Failed to send message. Please try again.');
-        console.error('EmailJS Error:', error);
+    .then(() => {
+      alert("Message sent successfully!");
+      contactForm.reset();
+    })
+    .catch((error) => {
+      alert("Failed to send message. Please try again.");
+      console.error("EmailJS Error:", error);
+    })
+    .finally(() => {
+      sendBtn.disabled = false;
+      sendBtn.innerHTML = originalHTML;
     });
 });
